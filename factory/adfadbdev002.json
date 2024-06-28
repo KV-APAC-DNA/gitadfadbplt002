@@ -1,0 +1,33 @@
+{
+	"name": "adfadbdev002",
+	"properties": {
+		"globalParameters": {
+			"environment": {
+				"type": "string",
+				"value": "prod"
+			},
+			"dev_resource_group": {
+				"type": "string",
+				"value": "AZR-WEK-rg-adf-adb-001"
+			},
+			"dev_subscription_id": {
+				"type": "string",
+				"value": "00ab5361-0cd5-44b3-b4df-8f24e00fe1df"
+			},
+			"prod_resource_group": {
+				"type": "string",
+				"value": "AZR-WEK-rg-adf-adb-001"
+			},
+			"prod_subscription_id": {
+				"type": "string",
+				"value": "00ab5361-0cd5-44b3-b4df-8f24e00fe1df"
+			}
+		}
+	},
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "98abad55-dbab-46e1-a6eb-5418ba7a5d19",
+		"tenantId": "7ba64ac2-8a2b-417e-9b8f-fcf8238f2a56"
+	}
+}

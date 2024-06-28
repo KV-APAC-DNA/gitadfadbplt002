@@ -1,0 +1,16 @@
+{
+	"name": "adfadbplt001lsdlsadbplt001",
+	"properties": {
+		"description": "Linked Service to Kenvue APAC DNA BASE ADLS Container for Landing zone",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://dlsadbplt001.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "adfiradbplt002",
+			"type": "IntegrationRuntimeReference"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
+}

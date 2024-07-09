@@ -1,0 +1,35 @@
+{
+	"name": "S3_TO_ADLS_IN_SKU_RECOMMENDATION_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "s3_to_adls",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Group_id": "60"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-07-09T15:55:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						20
+					],
+					"hours": [
+						7
+					]
+				}
+			}
+		}
+	}
+}

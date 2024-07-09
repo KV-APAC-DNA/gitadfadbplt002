@@ -1,0 +1,36 @@
+{
+	"name": "Historical_japan_mds_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PIPE_hist_data_migration_redshift_snowflake_master",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Environment": "PROD",
+					"process_id": "3682,3681,3680"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-07-09T15:37:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						30
+					],
+					"hours": [
+						10
+					]
+				}
+			}
+		}
+	}
+}

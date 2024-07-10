@@ -56,7 +56,7 @@
 								"type": "Expression"
 							},
 							"folderPath": {
-								"value": "@pipeline().parameters.folderPath",
+								"value": "@concat('prd/',activity('LU_KVADLS_JJS3_META').output.firstRow['ADLS_PATH'])",
 								"type": "Expression"
 							},
 							"fileName": {

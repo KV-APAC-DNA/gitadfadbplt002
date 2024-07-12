@@ -23,7 +23,7 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "SELECT *\nFROM META_RAW.HISTORICAL_OBJ_METADATA\nWHERE ISACTIVE = 'TRUE'\n  @{if(equals(pipeline().parameters.process_id, 'ALL'), '', concat(' and id in (', pipeline().parameters.process_id, ')'))}\n  @{if(not(equals(pipeline().parameters.process_id, '')), '', ' and 1 = 0')}\nORDER BY PRIORITY DESC;",
+								"value": "select * from META_RAW.HISTORICAL_OBJ_METADATA where ISACTIVE='TRUE' @{if(equals(pipeline().parameters.process_id,'ALL' ), '', concat(' and id in (',pipeline().parameters.process_id,')'))} Order By PRIORITY DESC;",
 								"type": "Expression"
 							}
 						}

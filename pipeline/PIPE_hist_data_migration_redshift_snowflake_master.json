@@ -124,7 +124,7 @@
 			},
 			"process_id": {
 				"type": "string",
-				"defaultValue": "ALL"
+				"defaultValue": "1"
 			}
 		},
 		"variables": {

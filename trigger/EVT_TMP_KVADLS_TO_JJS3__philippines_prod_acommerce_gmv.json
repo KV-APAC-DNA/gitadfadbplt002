@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3__philippines_prod_TH_MT_AS_WATSONS",
+	"name": "EVT_TMP_KVADLS_TO_JJS3__philippines_prod_acommerce_gmv",
 	"properties": {
 		"description": "Event Trigger for ID 251 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT -  kdp_conapdna_philippines_prod",
 		"annotations": [],

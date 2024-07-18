@@ -1,5 +1,5 @@
 {
-	"name": "s3_to_adls_HCP_OneSea_trigger",
+	"name": "s3_to_adls_hcp_onesea_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",

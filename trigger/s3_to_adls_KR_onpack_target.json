@@ -1,5 +1,5 @@
 {
-	"name": "S3_To_ADLS_MY_WATSONS_INV_trigger",
+	"name": "s3_to_adls_KR_onpack_target",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -10,7 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Group_id": "5"
+					"Group_id": "64"
 				}
 			}
 		],
@@ -19,16 +19,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2024-02-28T00:00:00",
+				"startTime": "2024-07-18T13:55:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
-						50
+						0
 					],
 					"hours": [
-						16,
-						17,
-						20
+						23
 					]
 				}
 			}

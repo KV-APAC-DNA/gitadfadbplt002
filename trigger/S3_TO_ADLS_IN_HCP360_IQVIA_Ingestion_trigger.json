@@ -1,5 +1,5 @@
 {
-	"name": "S3_TO_ADLS_TWSI_TARGET_INGESTION_trigger",
+	"name": "S3_TO_ADLS_IN_HCP360_IQVIA_Ingestion_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -10,7 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Group_id": "46"
+					"Group_id": "65"
 				}
 			}
 		],
@@ -19,14 +19,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2024-06-12T15:17:00",
+				"startTime": "2024-07-22T19:58:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
 						50
 					],
 					"hours": [
-						19
+						0
 					]
 				}
 			}

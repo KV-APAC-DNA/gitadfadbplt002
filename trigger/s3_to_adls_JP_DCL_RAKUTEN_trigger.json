@@ -1,0 +1,27 @@
+{
+	"name": "s3_to_adls_JP_DCL_RAKUTEN_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "s3_to_adls",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Group_id": "69"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 2,
+				"startTime": "2024-07-26T00:00:00",
+				"timeZone": "Singapore Standard Time"
+			}
+		}
+	}
+}

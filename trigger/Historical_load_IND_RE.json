@@ -1,0 +1,37 @@
+{
+	"name": "Historical_load_IND_RE",
+	"properties": {
+		"description": "Sync forward for India specific tables ",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PIPE_hist_data_migration_redshift_snowflake_master",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Environment": "PROD",
+					"process_id": "2587,2588,2592,2632,2342,2377"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-07-30T00:00:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						30
+					],
+					"hours": [
+						8
+					]
+				}
+			}
+		}
+	}
+}

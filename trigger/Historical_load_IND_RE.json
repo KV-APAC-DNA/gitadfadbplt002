@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Sync forward for India specific tables ",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -12,7 +12,7 @@
 				},
 				"parameters": {
 					"Environment": "PROD",
-					"process_id": "2587,2588,2592,2632,2342,2377"
+					"process_id": "5030,5031,5032,5033,5034,5035"
 				}
 			}
 		],
@@ -21,14 +21,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2025-12-30T12:00:00",
+				"startTime": "2024-08-02T12:00:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
 						30
 					],
 					"hours": [
-						12
+						13
 					]
 				}
 			}

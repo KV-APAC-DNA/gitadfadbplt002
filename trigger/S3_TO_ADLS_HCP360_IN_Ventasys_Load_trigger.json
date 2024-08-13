@@ -1,5 +1,5 @@
 {
-	"name": "S3_TO_ADLS_NA_TW_IMS_trigger",
+	"name": "S3_TO_ADLS_HCP360_IN_Ventasys_Load_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -10,7 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Group_id": "44"
+					"Group_id": "66"
 				}
 			}
 		],
@@ -19,14 +19,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2024-06-12T15:16:00",
+				"startTime": "2024-07-22T19:59:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
-						35
+						20
 					],
 					"hours": [
-						0
+						4
 					]
 				}
 			}

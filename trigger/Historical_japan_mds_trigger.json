@@ -1,16 +1,17 @@
 {
-	"name": "S3_TO_ADLS_NA_TW_IMS_trigger",
+	"name": "Historical_japan_mds_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "s3_to_adls",
+					"referenceName": "PIPE_hist_data_migration_redshift_snowflake_master",
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Group_id": "44"
+					"Environment": "PROD",
+					"process_id": "3682,3681,3680"
 				}
 			}
 		],
@@ -19,14 +20,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2024-06-12T15:16:00",
+				"startTime": "2024-07-09T15:37:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
-						35
+						30
 					],
 					"hours": [
-						0
+						22
 					]
 				}
 			}

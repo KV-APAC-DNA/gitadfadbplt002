@@ -1,5 +1,5 @@
 {
-	"name": "S3_TO_ADLS_NA_TW_IMS_trigger",
+	"name": "S3_TO_ADLS_JPN_POS_LOAD_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -10,25 +10,17 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Group_id": "44"
+					"Group_id": "67"
 				}
 			}
 		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2024-06-12T15:16:00",
-				"timeZone": "Singapore Standard Time",
-				"schedule": {
-					"minutes": [
-						35
-					],
-					"hours": [
-						0
-					]
-				}
+				"frequency": "Minute",
+				"interval": 30,
+				"startTime": "2024-07-24T16:53:00",
+				"timeZone": "Singapore Standard Time"
 			}
 		}
 	}

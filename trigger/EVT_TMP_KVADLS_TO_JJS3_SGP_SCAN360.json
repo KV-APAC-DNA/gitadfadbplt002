@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3_SGP_SCAN360_WATSONS",
+	"name": "EVT_TMP_KVADLS_TO_JJS3_SGP_SCAN360",
 	"properties": {
 		"description": "Event Trigger for ID 14 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_singapore_prod",
 		"annotations": [],
@@ -18,7 +18,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/sgp/blobs/prd/scan360/watsons/",
+			"blobPathBeginsWith": "/sgp/blobs/prd/scan360/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

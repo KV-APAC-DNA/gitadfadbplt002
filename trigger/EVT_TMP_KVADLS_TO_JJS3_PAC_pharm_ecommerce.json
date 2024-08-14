@@ -18,7 +18,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/pac/blobs/prd/pharm_ecommerce/transaction/kenvue_weekly_national_ecommerce_data/",
+			"blobPathBeginsWith": "/pac/blobs/prd/pharm_ecommerce/transaction/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

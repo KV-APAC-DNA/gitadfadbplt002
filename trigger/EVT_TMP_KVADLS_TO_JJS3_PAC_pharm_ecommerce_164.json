@@ -4,18 +4,7 @@
 		"description": "Event Trigger for ID 164 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_pacific_prod",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "PL_KVADLS_TO_JJS3",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"folderPath": "@triggerBody().folderPath",
-					"fileName": "@triggerBody().fileName"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/pac/blobs/prd/pharm_ecommerce/transaction/kenvue_weekly_chw_ecommerce_data/",

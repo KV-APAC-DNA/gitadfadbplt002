@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3_PAC_ap_perenso_weeklyload_foodstuff",
+	"name": "EVT_TMP_KVADLS_TO_JJS3_PAC_ap_perenso",
 	"properties": {
 		"description": "Event Trigger for ID 165,166 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_pacific_prod",
 		"annotations": [],
@@ -18,7 +18,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/pac/blobs/prd/ap_perenso/transaction/weekly_load/foodstuff/",
+			"blobPathBeginsWith": "/pac/blobs/prd/ap_perenso/transaction/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

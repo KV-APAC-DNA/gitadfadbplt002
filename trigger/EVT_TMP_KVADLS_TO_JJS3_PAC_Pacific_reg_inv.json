@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3_PAC_Pacific_reg_inv_Coles",
+	"name": "EVT_TMP_KVADLS_TO_JJS3_PAC_Pacific_reg_inv",
 	"properties": {
 		"description": "Event Trigger for ID 179,180 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_pacific_prod",
 		"annotations": [],

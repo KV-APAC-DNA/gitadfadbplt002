@@ -1,7 +1,7 @@
 {
 	"name": "EVT_TMP_KVADLS_TO_JJS3_PAC_Pacific_reg_inv",
 	"properties": {
-		"description": "Event Trigger for ID 179,180 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_pacific_prod",
+		"description": "Event Trigger for ID 179,180,202,223,224,225,230 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_pacific_prod",
 		"annotations": [],
 		"runtimeState": "Started",
 		"pipelines": [

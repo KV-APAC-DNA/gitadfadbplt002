@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3__malaysia_prod_pos_master",
+	"name": "EVT_TMP_KVADLS_TO_JJS3__malaysia_prod_pos",
 	"properties": {
 		"description": "Event Trigger for ID 1-7, 16 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_malaysia_prod_pos_master",
 		"annotations": [],
@@ -18,7 +18,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/mys/blobs/prd/pos/master/",
+			"blobPathBeginsWith": "/mys/blobs/prd/pos/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

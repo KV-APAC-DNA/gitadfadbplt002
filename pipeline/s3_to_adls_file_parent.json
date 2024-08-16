@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "get_metadata",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -30,6 +30,62 @@
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "get_metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('get_metadata').output.value",
+						"type": "Expression"
+					},
+					"batchCount": 1,
+					"activities": [
+						{
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "s3_to_adl_file_child",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"s3_bucket": {
+										"value": "@item().S3_BUCKET",
+										"type": "Expression"
+									},
+									"s3_path": {
+										"value": "@item().S3_PATH",
+										"type": "Expression"
+									},
+									"adls_container": {
+										"value": "@item().ADLS_CONTAINER",
+										"type": "Expression"
+									},
+									"adls_path": {
+										"value": "@item().ADLS_PATH",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
 				}
 			}
 		],

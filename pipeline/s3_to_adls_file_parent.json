@@ -32,7 +32,8 @@
 		],
 		"parameters": {
 			"Group_id": {
-				"type": "string"
+				"type": "int",
+				"defaultValue": 1
 			}
 		},
 		"folder": {

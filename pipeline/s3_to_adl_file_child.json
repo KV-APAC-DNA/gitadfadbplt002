@@ -1,0 +1,67 @@
+{
+	"name": "s3_to_adl_file_child",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "S3FolderDataset",
+						"type": "DatasetReference",
+						"parameters": {
+							"s3bucket": "@pipeline().parameters.s3_bucket",
+							"s3directory": "@pipeline().parameters.s3_path"
+						}
+					},
+					"fieldList": [
+						"childItems",
+						"lastModified"
+					],
+					"storeSettings": {
+						"type": "AmazonS3ReadSettings",
+						"modifiedDatetimeStart": {
+							"value": "@formatDateTime(addDays(utcnow(), -730), 'yyyy-MM-dd')",
+							"type": "Expression"
+						},
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"s3_bucket": {
+				"type": "string",
+				"defaultValue": "itx-arm-conapdna-aspac-prod"
+			},
+			"s3_path": {
+				"type": "string",
+				"defaultValue": "raw-data-lake/travel_retail/transaction_files/archive/"
+			},
+			"adls_container": {
+				"type": "string",
+				"defaultValue": "asp"
+			},
+			"adls_path": {
+				"type": "string",
+				"defaultValue": "akash_s3_to_adls_test"
+			}
+		},
+		"folder": {
+			"name": "Miscellaneous Pipelines/s3_to_adls_hist_file_pipeline"
+		},
+		"annotations": []
+	}
+}

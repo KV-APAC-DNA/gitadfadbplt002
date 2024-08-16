@@ -1,0 +1,43 @@
+{
+	"name": "s3_to_adls_file_parent",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SnowflakeSource",
+						"query": "@concat('select * from s3_to_adls_hist_file where group_id=',pipeline().parameters.Group_id)",
+						"exportSettings": {
+							"type": "SnowflakeExportCopyCommand"
+						}
+					},
+					"dataset": {
+						"referenceName": "mtd_process",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"parameters": {
+			"Group_id": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Miscellaneous Pipelines/s3_to_adls_hist_file_pipeline"
+		},
+		"annotations": []
+	}
+}

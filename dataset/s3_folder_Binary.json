@@ -1,0 +1,26 @@
+{
+	"name": "s3_folder_Binary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfadbplt001lsas3adpprd001",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"s3bucket": {
+				"type": "string"
+			},
+			"s3directory": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "@dataset().s3bucket",
+				"folderPath": "@dataset().s3directory"
+			}
+		}
+	}
+}

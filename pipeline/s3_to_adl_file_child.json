@@ -183,20 +183,16 @@
 		],
 		"parameters": {
 			"s3_bucket": {
-				"type": "string",
-				"defaultValue": "itx-arm-conapdna-aspac-prod"
+				"type": "string"
 			},
 			"s3_path": {
-				"type": "string",
-				"defaultValue": "raw-data-lake/travel_retail/transaction_files/archive/"
+				"type": "string"
 			},
 			"adls_container": {
-				"type": "string",
-				"defaultValue": "asp"
+				"type": "string"
 			},
 			"adls_path": {
-				"type": "string",
-				"defaultValue": "akash_s3_to_adls_test"
+				"type": "string"
 			},
 			"Group_id": {
 				"type": "int"

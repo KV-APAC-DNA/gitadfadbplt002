@@ -110,6 +110,72 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "log_on_success",
+							"type": "Script",
+							"dependsOn": [
+								{
+									"activity": "s3_to_adls_file_transfer",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "adfadbplt001lssnfkpltdnaload",
+								"type": "LinkedServiceReference"
+							},
+							"typeProperties": {
+								"scripts": [
+									{
+										"type": "Query",
+										"text": "alter session set  timezone ='UTC';\nINSERT INTO META_RAW.S3_TO_ADLS_hist_file_logs\n(ID, GROUP_ID, S3_BUCKET, S3_PATH, ADLS_CONTAINER,ADLS_PATH,file_name, RUN_AT, STATUS)\nVALUES\n(@{item().id},\n@{pipeline().parameters.Group_id},\n'@pipeline().parameters.s3_bucket',\n'@pipeline().parameters.s3_path',\n'@pipeline().parameters.adls_container',\n'@{if(equals(pipeline().globalParameters.environment, 'prod'),'prd', pipeline().globalParameters.environment)}/@{pipeline().parameters.adls_path}/',\n'@item().name',\nCURRENT_TIMESTAMP(),\n'SUCCESS'\n)"
+									}
+								],
+								"scriptBlockExecutionTimeout": "02:00:00"
+							}
+						},
+						{
+							"name": "log_on_success_copy1",
+							"type": "Script",
+							"dependsOn": [
+								{
+									"activity": "s3_to_adls_file_transfer",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "adfadbplt001lssnfkpltdnaload",
+								"type": "LinkedServiceReference"
+							},
+							"typeProperties": {
+								"scripts": [
+									{
+										"type": "Query",
+										"text": "alter session set  timezone ='UTC';\nINSERT INTO META_RAW.S3_TO_ADLS_hist_file_logs\n(ID, GROUP_ID, S3_BUCKET, S3_PATH, ADLS_CONTAINER,ADLS_PATH,file_name, RUN_AT, STATUS)\nVALUES\n(@{item().id},\n@{pipeline().parameters.Group_id},\n'@pipeline().parameters.s3_bucket',\n'@pipeline().parameters.s3_path',\n'@pipeline().parameters.adls_container',\n'@{if(equals(pipeline().globalParameters.environment, 'prod'),'prd', pipeline().globalParameters.environment)}/@{pipeline().parameters.adls_path}/',\n'@item().name',\nCURRENT_TIMESTAMP(),\n'SUCCESS'\n)"
+									}
+								],
+								"scriptBlockExecutionTimeout": "02:00:00"
+							}
 						}
 					]
 				}
@@ -131,6 +197,12 @@
 			"adls_path": {
 				"type": "string",
 				"defaultValue": "akash_s3_to_adls_test"
+			},
+			"Group_id": {
+				"type": "int"
+			},
+			"id": {
+				"type": "int"
 			}
 		},
 		"folder": {

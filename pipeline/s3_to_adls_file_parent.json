@@ -49,6 +49,7 @@
 						"value": "@activity('get_metadata').output.value",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"batchCount": 1,
 					"activities": [
 						{
@@ -80,6 +81,14 @@
 									},
 									"adls_path": {
 										"value": "@item().ADLS_PATH",
+										"type": "Expression"
+									},
+									"Group_id": {
+										"value": "@item().GROUP_ID",
+										"type": "Expression"
+									},
+									"id": {
+										"value": "@item().ID",
 										"type": "Expression"
 									}
 								}

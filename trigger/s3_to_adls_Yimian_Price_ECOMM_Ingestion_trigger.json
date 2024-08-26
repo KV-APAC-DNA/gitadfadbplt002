@@ -1,0 +1,35 @@
+{
+	"name": "s3_to_adls_Yimian_Price_ECOMM_Ingestion_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "s3_to_adls",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Group_id": "71"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-08-22T11:34:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						45
+					],
+					"hours": [
+						20
+					]
+				}
+			}
+		}
+	}
+}

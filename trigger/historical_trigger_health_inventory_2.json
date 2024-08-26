@@ -1,5 +1,5 @@
 {
-	"name": "historical_trigger_health_inventory_1000",
+	"name": "historical_trigger_health_inventory_2",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -24,7 +24,7 @@
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
-						0
+						30
 					],
 					"hours": [
 						10

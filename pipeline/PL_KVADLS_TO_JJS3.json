@@ -3,87 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "PLCOPY_KVADLS_TO_S3",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "LU_KVADLS_JJS3_META",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 1,
-					"retryIntervalInSeconds": 720,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "BinarySource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"maxConcurrentConnections": 1,
-							"recursive": true,
-							"deleteFilesAfterCompletion": false
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
-						}
-					},
-					"sink": {
-						"type": "BinarySink",
-						"storeSettings": {
-							"type": "SftpWriteSettings",
-							"maxConcurrentConnections": 2,
-							"copyBehavior": "PreserveHierarchy",
-							"operationTimeout": "01:00:00",
-							"useTempFileRename": false
-						}
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "DS_KVADLS",
-						"type": "DatasetReference",
-						"parameters": {
-							"container": {
-								"value": "@activity('LU_KVADLS_JJS3_META').output.firstRow['ADLS_CONTAINER']",
-								"type": "Expression"
-							},
-							"folderPath": {
-								"value": "@concat('prd/',activity('LU_KVADLS_JJS3_META').output.firstRow['ADLS_PATH'])",
-								"type": "Expression"
-							},
-							"fileName": {
-								"value": "@pipeline().parameters.fileName",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_JJS3",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": {
-								"value": "@concat('JJISG_APDNA_',replace(activity('LU_KVADLS_JJS3_META').output.firstRow['S3_BUCKET'],'-','_'),'/',activity('LU_KVADLS_JJS3_META').output.firstRow['S3_PATH'])",
-								"type": "Expression"
-							},
-							"fileName": {
-								"value": "@pipeline().parameters.fileName",
-								"type": "Expression"
-							}
-						}
-					}
-				]
-			},
-			{
 				"name": "LU_KVADLS_JJS3_META",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -112,9 +31,106 @@
 					},
 					"firstRowOnly": true
 				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "LU_KVADLS_JJS3_META",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@not(empty(activity('LU_KVADLS_JJS3_META').output.firstRow))",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "PLCOPY_KVADLS_TO_S3",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 720,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "BinarySource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"maxConcurrentConnections": 5,
+										"recursive": true,
+										"deleteFilesAfterCompletion": false
+									},
+									"formatSettings": {
+										"type": "BinaryReadSettings"
+									}
+								},
+								"sink": {
+									"type": "BinarySink",
+									"storeSettings": {
+										"type": "SftpWriteSettings",
+										"maxConcurrentConnections": 2,
+										"copyBehavior": "PreserveHierarchy",
+										"operationTimeout": "00:16:00",
+										"useTempFileRename": false
+									}
+								},
+								"enableStaging": false,
+								"parallelCopies": 2,
+								"dataIntegrationUnits": 8
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_KVADLS",
+									"type": "DatasetReference",
+									"parameters": {
+										"container": {
+											"value": "@activity('LU_KVADLS_JJS3_META').output.firstRow['ADLS_CONTAINER']",
+											"type": "Expression"
+										},
+										"folderPath": {
+											"value": "@concat('prd/',activity('LU_KVADLS_JJS3_META').output.firstRow['ADLS_PATH'])",
+											"type": "Expression"
+										},
+										"fileName": {
+											"value": "@pipeline().parameters.fileName",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_JJS3",
+									"type": "DatasetReference",
+									"parameters": {
+										"folderName": {
+											"value": "@concat('JJISG_APDNA_',replace(activity('LU_KVADLS_JJS3_META').output.firstRow['S3_BUCKET'],'-','_'),'/',activity('LU_KVADLS_JJS3_META').output.firstRow['S3_PATH'])",
+											"type": "Expression"
+										},
+										"fileName": {
+											"value": "@pipeline().parameters.fileName",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
 			}
 		],
-		"concurrency": 5,
+		"concurrency": 8,
 		"parameters": {
 			"folderPath": {
 				"type": "string",

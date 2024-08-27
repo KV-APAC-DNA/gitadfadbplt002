@@ -67,7 +67,7 @@
 									"type": "BinarySource",
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
-										"maxConcurrentConnections": 1,
+										"maxConcurrentConnections": 5,
 										"recursive": true,
 										"deleteFilesAfterCompletion": false
 									},
@@ -81,11 +81,13 @@
 										"type": "SftpWriteSettings",
 										"maxConcurrentConnections": 2,
 										"copyBehavior": "PreserveHierarchy",
-										"operationTimeout": "01:00:00",
+										"operationTimeout": "00:16:00",
 										"useTempFileRename": false
 									}
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"parallelCopies": 2,
+								"dataIntegrationUnits": 8
 							},
 							"inputs": [
 								{
@@ -128,7 +130,7 @@
 				}
 			}
 		],
-		"concurrency": 5,
+		"concurrency": 8,
 		"parameters": {
 			"folderPath": {
 				"type": "string",

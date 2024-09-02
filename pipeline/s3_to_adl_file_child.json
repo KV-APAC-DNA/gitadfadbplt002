@@ -29,6 +29,7 @@
 					],
 					"storeSettings": {
 						"type": "AmazonS3ReadSettings",
+						"recursive": true,
 						"modifiedDatetimeStart": {
 							"value": "@formatDateTime(addDays(utcnow(), -730), 'yyyy-MM-dd')",
 							"type": "Expression"
@@ -57,6 +58,8 @@
 						"value": "@activity('get_the_list_of_file').output.childItems",
 						"type": "Expression"
 					},
+					"isSequential": false,
+					"batchCount": 5,
 					"activities": [
 						{
 							"name": "s3_to_adls_file_transfer",

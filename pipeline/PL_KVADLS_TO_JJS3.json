@@ -55,7 +55,7 @@
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.12:00:00",
+								"timeout": "0.01:00:00",
 								"retry": 0,
 								"retryIntervalInSeconds": 720,
 								"secureOutput": false,
@@ -81,13 +81,12 @@
 										"type": "SftpWriteSettings",
 										"maxConcurrentConnections": 2,
 										"copyBehavior": "PreserveHierarchy",
-										"operationTimeout": "00:16:00",
 										"useTempFileRename": false
 									}
 								},
 								"enableStaging": false,
 								"parallelCopies": 1,
-								"dataIntegrationUnits": 8
+								"dataIntegrationUnits": 16
 							},
 							"inputs": [
 								{
@@ -127,6 +126,22 @@
 							]
 						}
 					]
+				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "If Condition1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
 				}
 			}
 		],

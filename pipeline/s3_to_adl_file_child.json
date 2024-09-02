@@ -191,7 +191,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "s3_to_adls",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -232,13 +232,21 @@
 				"inputs": [
 					{
 						"referenceName": "s3_folder_Binary",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"s3bucket": "@pipeline().parameters.s3_bucket",
+							"s3directory": "@pipeline().parameters.s3_path"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "adls_sink_binary",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"adls_container": "@pipeline().parameters.adls_container",
+							"adls_path": "@{if(equals(pipeline().globalParameters.environment, 'prod'),'prd', pipeline().globalParameters.environment)}/@{pipeline().parameters.adls_path}/"
+						}
 					}
 				]
 			},
@@ -247,7 +255,7 @@
 				"type": "Script",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "s3_to_adls",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -283,7 +291,7 @@
 				"type": "Script",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "s3_to_adls",
 						"dependencyConditions": [
 							"Failed"
 						]

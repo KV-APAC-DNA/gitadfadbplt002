@@ -59,7 +59,6 @@
 						"type": "Expression"
 					},
 					"isSequential": false,
-					"batchCount": 5,
 					"activities": [
 						{
 							"name": "s3_to_adls_file_transfer",

@@ -81,13 +81,12 @@
 										"type": "SftpWriteSettings",
 										"maxConcurrentConnections": 2,
 										"copyBehavior": "PreserveHierarchy",
-										"operationTimeout": "00:16:00",
 										"useTempFileRename": false
 									}
 								},
 								"enableStaging": false,
 								"parallelCopies": 1,
-								"dataIntegrationUnits": 8
+								"dataIntegrationUnits": 16
 							},
 							"inputs": [
 								{

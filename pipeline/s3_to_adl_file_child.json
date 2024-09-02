@@ -44,6 +44,8 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "get_the_list_of_file",
@@ -186,6 +188,130 @@
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "get_the_list_of_file",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AmazonS3ReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "s3_folder_Binary",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "adls_sink_binary",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "log_on_success_copy2",
+				"type": "Script",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "adfadbplt001lssnfkpltdnaload",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": {
+								"value": "alter session set  timezone ='UTC';\nINSERT INTO META_RAW.S3_TO_ADLS_hist_file_logs\n(ID, GROUP_ID, S3_BUCKET, S3_PATH, ADLS_CONTAINER,ADLS_PATH,file_name, RUN_AT, STATUS)\nVALUES\n(@{pipeline().parameters.id},\n@{pipeline().parameters.Group_id},\n'@{pipeline().parameters.s3_bucket}',\n'@{pipeline().parameters.s3_path}',\n'@{pipeline().parameters.adls_container}',\n'@{if(equals(pipeline().globalParameters.environment, 'prod'),'prd', pipeline().globalParameters.environment)}/@{pipeline().parameters.adls_path}',\nCURRENT_TIMESTAMP(),\n'SUCCESS'\n)",
+								"type": "Expression"
+							}
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "log_on_success_copy1_copy1",
+				"type": "Script",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "adfadbplt001lssnfkpltdnaload",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": {
+								"value": "alter session set  timezone ='UTC';\nINSERT INTO META_RAW.S3_TO_ADLS_hist_file_logs\n(ID, GROUP_ID, S3_BUCKET, S3_PATH, ADLS_CONTAINER,ADLS_PATH,file_name, RUN_AT, STATUS)\nVALUES\n(@{pipeline().parameters.id},\n@{pipeline().parameters.Group_id},\n'@{pipeline().parameters.s3_bucket}',\n'@{pipeline().parameters.s3_path}',\n'@{pipeline().parameters.adls_container}',\n'@{if(equals(pipeline().globalParameters.environment, 'prod'),'prd', pipeline().globalParameters.environment)}/@{pipeline().parameters.adls_path}',\nCURRENT_TIMESTAMP(),\n'Failed'\n)",
+								"type": "Expression"
+							}
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
 				}
 			}
 		],

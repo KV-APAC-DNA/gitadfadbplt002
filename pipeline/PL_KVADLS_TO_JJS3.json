@@ -55,7 +55,7 @@
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.12:00:00",
+								"timeout": "0.01:00:00",
 								"retry": 0,
 								"retryIntervalInSeconds": 720,
 								"secureOutput": false,

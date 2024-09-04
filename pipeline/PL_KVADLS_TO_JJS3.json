@@ -79,7 +79,7 @@
 									"type": "BinarySink",
 									"storeSettings": {
 										"type": "SftpWriteSettings",
-										"maxConcurrentConnections": 1,
+										"maxConcurrentConnections": 2,
 										"copyBehavior": "PreserveHierarchy",
 										"useTempFileRename": false
 									}

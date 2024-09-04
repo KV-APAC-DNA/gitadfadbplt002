@@ -1,0 +1,27 @@
+{
+	"name": "adfadbplt001lsmftappvkenvuecom_vnm",
+	"properties": {
+		"description": "Linked Service to Kenvue MFT VNM",
+		"annotations": [],
+		"type": "Sftp",
+		"typeProperties": {
+			"host": "mftappv.kenvue.com",
+			"port": 22,
+			"skipHostKeyValidation": true,
+			"authenticationType": "Basic",
+			"userName": "sa_jnj_kdp_local_vnm",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "adfadbplt001lsakvadbplt001",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "adfadbplt001lsmftappvkenvuecom"
+			}
+		},
+		"connectVia": {
+			"referenceName": "adfiradbplt002",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

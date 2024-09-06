@@ -124,6 +124,26 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "Fail1",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "PLCOPY_KVADLS_TO_S3",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": {
+									"value": "@activity('PLCOPY_KVADLS_TO_S3').output",
+									"type": "Expression"
+								},
+								"errorCode": "400"
+							}
 						}
 					]
 				}

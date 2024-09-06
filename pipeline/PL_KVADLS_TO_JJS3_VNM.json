@@ -55,8 +55,8 @@
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.01:00:00",
-								"retry": 0,
+								"timeout": "0.00:15:00",
+								"retry": 1,
 								"retryIntervalInSeconds": 720,
 								"secureOutput": false,
 								"secureInput": false
@@ -124,6 +124,26 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "Fail1",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "PLCOPY_KVADLS_TO_S3_VNM",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": {
+									"value": "@activity('PLCOPY_KVADLS_TO_S3_VNM').output",
+									"type": "Expression"
+								},
+								"errorCode": "400"
+							}
 						}
 					]
 				}
@@ -145,7 +165,7 @@
 				}
 			}
 		],
-		"concurrency": 8,
+		"concurrency": 4,
 		"parameters": {
 			"folderPath": {
 				"type": "string",

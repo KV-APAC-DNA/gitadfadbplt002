@@ -55,8 +55,8 @@
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.01:00:00",
-								"retry": 0,
+								"timeout": "0.00:15:00",
+								"retry": 1,
 								"retryIntervalInSeconds": 720,
 								"secureOutput": false,
 								"secureInput": false
@@ -79,7 +79,7 @@
 									"type": "BinarySink",
 									"storeSettings": {
 										"type": "SftpWriteSettings",
-										"maxConcurrentConnections": 2,
+										"maxConcurrentConnections": 1,
 										"copyBehavior": "PreserveHierarchy",
 										"useTempFileRename": false
 									}

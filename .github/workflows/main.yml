@@ -79,9 +79,7 @@ jobs:
             Write-Error "Script not found at: $scriptPath"
             exit 1
         }
-      #shell: pwsh
-      #run: ${{github.workspace}}/build/adf-artifact/PrePostDeploymentScript.ps1 -armTemplate "${{github.workspace}}/build/adf-artifact/ARMTemplateForFactory.json" -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbdev002" -predeployment $true -deleteDeployment $false
-
+     
     - name: Run ARM deploy adfadbdev002-live
       uses: azure/arm-deploy@v1
       with:
@@ -113,9 +111,7 @@ jobs:
             Write-Error "Script not found at: $scriptPath"
             exit 1
         }
-      #shell: pwsh
-      #run: ${{github.workspace}}/build/adf-artifact/PrePostDeploymentScript.ps1 -armTemplate "${{github.workspace}}/build/adf-artifact/ARMTemplateForFactory.json" -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbprd002" -predeployment $true -deleteDeployment $false
-
+  
     - name: Run ARM deploy prd001-live
       uses: azure/arm-deploy@v1
       with:
@@ -134,3 +130,14 @@ jobs:
             Write-Error "Script not found at: $scriptPath"
             exit 1
         }
+        
+    - name: Stop Triggers in lower env
+      shell: pwsh
+      run: | 
+       $Triggers = Get-AzDataFactoryV2Trigger -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbdev002"
+       if($triggers) {
+        for each($trigger in $triggers) {
+          Stop-AzDataFactoryV2Trigger -ResourceGroupName ${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }} -DataFactoryName adfadbdev002 -Name $trigger.Name -Force
+          Write-Host "Stopped trigger $($trigger.Name)."
+        }
+       }

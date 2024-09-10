@@ -136,7 +136,7 @@ jobs:
       run: | 
        $Triggers = Get-AzDataFactoryV2Trigger -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbdev002"
        if($triggers) {
-        for each($trigger in $triggers) {
+        foreach($trigger in $triggers) {
           Stop-AzDataFactoryV2Trigger -ResourceGroupName ${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }} -DataFactoryName adfadbdev002 -Name $trigger.Name -Force
           Write-Host "Stopped trigger $($trigger.Name)."
         }

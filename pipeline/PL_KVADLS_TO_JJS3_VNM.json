@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@not(empty(activity('LU_KVADLS_JJS3_META').output.firstRow))",
+						"value": "@contains(activity('LU_KVADLS_JJS3_META').output,'firstRow')",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [

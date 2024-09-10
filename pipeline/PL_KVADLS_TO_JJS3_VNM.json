@@ -49,6 +49,17 @@
 						"value": "@not(empty(activity('LU_KVADLS_JJS3_META').output.firstRow))",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Wait2",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "PLCOPY_KVADLS_TO_S3_VNM",

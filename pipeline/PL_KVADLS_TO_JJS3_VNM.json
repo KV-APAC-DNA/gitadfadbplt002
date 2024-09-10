@@ -124,26 +124,6 @@
 									}
 								}
 							]
-						},
-						{
-							"name": "Fail1",
-							"type": "Fail",
-							"dependsOn": [
-								{
-									"activity": "PLCOPY_KVADLS_TO_S3_VNM",
-									"dependencyConditions": [
-										"Failed"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"message": {
-									"value": "@activity('PLCOPY_KVADLS_TO_S3_VNM').output",
-									"type": "Expression"
-								},
-								"errorCode": "400"
-							}
 						}
 					]
 				}
@@ -153,7 +133,7 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "If Condition1",
+						"activity": "LU_KVADLS_JJS3_META",
 						"dependencyConditions": [
 							"Failed"
 						]

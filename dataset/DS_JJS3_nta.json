@@ -1,15 +1,12 @@
 {
-	"name": "DS_KVADLS",
+	"name": "DS_JJS3_nta",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "adfadbplt001lsdlsadbplt001_ir001",
+			"referenceName": "adfadbplt001lsmftappvkenvuecom_nta",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"container": {
-				"type": "string"
-			},
-			"folderPath": {
+			"folderName": {
 				"type": "string"
 			},
 			"fileName": {
@@ -23,17 +20,13 @@
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
+				"type": "SftpLocation",
 				"fileName": {
 					"value": "@dataset().fileName",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().folderPath",
-					"type": "Expression"
-				},
-				"fileSystem": {
-					"value": "@dataset().container",
+					"value": "@dataset().folderName",
 					"type": "Expression"
 				}
 			}

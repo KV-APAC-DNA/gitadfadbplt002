@@ -68,38 +68,6 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         enable-AzPSSession: true 
       
-    - name: Run Pre-deployment script adfadbdev002-live
-      shell: pwsh
-      run: |
-       $scriptPath = "${{github.workspace}}/build/adf-artifact/PrePostDeploymentScript.ps1"
-        if (Test-Path $scriptPath) {
-            Write-Output "Running script: $scriptPath"
-            pwsh -File $scriptPath -ArmTemplate "${{github.workspace}}/build/adf-artifact/ARMTemplateForFactory.json" -ArmTemplateParameters "${{github.workspace}}/build/adf-artifact/ARMTemplateParametersForFactory.json" -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbdev002" -predeployment:$True -deleteDeployment:$False
-        } else {
-            Write-Error "Script not found at: $scriptPath"
-            exit 1
-        }
-     
-    - name: Run ARM deploy adfadbdev002-live
-      uses: azure/arm-deploy@v1
-      with:
-        resourceGroupName: ${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}
-        template: ${{github.workspace}}/build/adf-artifact/ARMTemplateForFactory.json
-        parameters: ${{github.workspace}}/build/adf-artifact/ARMTemplateParametersForFactory.json factoryName=adfadbdev002
-        
-    - name: Run Post-deployment script adfadbdev002-live
-      shell: pwsh
-      run: |
-       $scriptPath = "${{github.workspace}}/build/adf-artifact/PrePostDeploymentScript.ps1"
-        if (Test-Path $scriptPath) {
-            Write-Output "Running script: $scriptPath"
-            pwsh -File $scriptPath -ArmTemplate "${{github.workspace}}/build/adf-artifact/ARMTemplateForFactory.json" -ArmTemplateParameters "${{github.workspace}}/build/adf-artifact/ARMTemplateParametersForFactory.json" -ResourceGroupName "${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}" -DataFactoryName "adfadbdev002" -predeployment:$False -deleteDeployment:$True
-        } else {
-            Write-Error "Script not found at: $scriptPath"
-            exit 1
-        }
-
-######
     - name: Run Pre-deployment script prd001-live
       shell: pwsh
       run: |
@@ -112,7 +80,7 @@ jobs:
             exit 1
         }
   
-    - name: Run ARM deploy prd001-live
+    - name: Run ARM deploy prd002-live
       uses: azure/arm-deploy@v1
       with:
         resourceGroupName: ${{ secrets.AZURE_DATAFACTORY_RESOURCEGROUP }}

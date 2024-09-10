@@ -1,26 +1,26 @@
 {
-	"name": "adfadbplt001lsmftappvkenvuecomjpdcl",
+	"name": "adfadbplt001lsmftappvkenvuecom_nta",
 	"properties": {
-		"description": "linked service to jp dcl mbox",
+		"description": "Linked Service to Kenvue MFT NTA",
 		"annotations": [],
 		"type": "Sftp",
 		"typeProperties": {
-			"host": "mftappv.kenvue.com",
+			"host": "mftappv-int.kenvue.com",
 			"port": 22,
 			"skipHostKeyValidation": true,
-			"authenticationType": "SshPublicKey",
-			"userName": "DCL_CI_NEXT_CMS_PROBANCE",
-			"privateKeyContent": {
+			"authenticationType": "Basic",
+			"userName": "sa_jnj_kdp_local_nta",
+			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
 					"referenceName": "adfadbplt001lsakvadbplt001",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "adfadbplt001lsmftappvkenvuecomjpdcl"
+				"secretName": "adfadbplt001lsmftappvkenvuecom"
 			}
 		},
 		"connectVia": {
-			"referenceName": "adfiradbplt002",
+			"referenceName": "adfiradbplt003",
 			"type": "IntegrationRuntimeReference"
 		}
 	}

@@ -2,7 +2,7 @@
 	"name": "DS_JJS3_nta",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "adfadbplt001lsmftappvkenvuecom_vnm",
+			"referenceName": "adfadbplt001lsmftappvkenvuecom_nta",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

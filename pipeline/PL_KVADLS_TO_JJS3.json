@@ -78,7 +78,7 @@
 									"type": "BinarySource",
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
-										"maxConcurrentConnections": 5,
+										"maxConcurrentConnections": 1,
 										"recursive": true,
 										"deleteFilesAfterCompletion": false
 									},

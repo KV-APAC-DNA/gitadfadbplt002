@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "Sftp",
 		"typeProperties": {
-			"host": "mftappv-int.kenvue.com",
+			"host": "mftappv.kenvue.com",
 			"port": 22,
 			"skipHostKeyValidation": true,
 			"authenticationType": "Basic",
@@ -20,7 +20,7 @@
 			}
 		},
 		"connectVia": {
-			"referenceName": "adfiradbplt002",
+			"referenceName": "adfiradbplt003",
 			"type": "IntegrationRuntimeReference"
 		}
 	}

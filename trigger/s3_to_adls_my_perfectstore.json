@@ -1,0 +1,35 @@
+{
+	"name": "s3_to_adls_my_perfectstore",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "s3_to_adls",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Group_id": "74"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-09-19T13:43:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						20
+					],
+					"hours": [
+						1
+					]
+				}
+			}
+		}
+	}
+}

@@ -17,7 +17,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/twn/blobs/prd/ims/transaction/distributor/134478/",
+			"blobPathBeginsWith": "/twn/blobs/prd/ims/transaction/distributor/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

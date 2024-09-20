@@ -1,5 +1,5 @@
 {
-	"name": "EVT_TMP_KVADLS_TO_JJS3_HKG_WINGKEUNG",
+	"name": "EVT_TMP_KVADLS_TO_JJS3_HKG_Users",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -17,7 +17,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/hkg/blobs/prd/ims/transaction/",
+			"blobPathBeginsWith": "/hkg/blobs/prd/pos/transaction/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/00ab5361-0cd5-44b3-b4df-8f24e00fe1df/resourceGroups/AZR-WEK-rg-dls-adb-001/providers/Microsoft.Storage/storageAccounts/dlsadbplt001",
 			"events": [

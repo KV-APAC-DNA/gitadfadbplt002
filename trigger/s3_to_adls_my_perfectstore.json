@@ -1,17 +1,16 @@
 {
-	"name": "Historical_Trigger_PerfectStore",
+	"name": "s3_to_adls_my_perfectstore",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "PIPE_hist_data_migration_redshift_snowflake_master",
+					"referenceName": "s3_to_adls",
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Environment": "PROD",
-					"process_id": "552"
+					"Group_id": "74"
 				}
 			}
 		],
@@ -20,15 +19,14 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2024-06-25T13:28:00",
+				"startTime": "2024-09-19T13:43:00",
 				"timeZone": "Singapore Standard Time",
 				"schedule": {
 					"minutes": [
-						0
+						20
 					],
 					"hours": [
-						8,
-						11
+						1
 					]
 				}
 			}

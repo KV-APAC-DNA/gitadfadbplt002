@@ -101,7 +101,7 @@
 		"parameters": {
 			"Group_id": {
 				"type": "string",
-				"defaultValue": "23"
+				"defaultValue": "24"
 			}
 		},
 		"folder": {

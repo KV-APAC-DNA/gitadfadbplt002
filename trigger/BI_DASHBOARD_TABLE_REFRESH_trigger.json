@@ -25,13 +25,13 @@
 				"frequency": "Month",
 				"interval": 1,
 				"startTime": "2024-10-28T09:36:00",
-				"timeZone": "Singapore Standard Time",
+				"timeZone": "India Standard Time",
 				"schedule": {
 					"minutes": [
 						0
 					],
 					"hours": [
-						6
+						12
 					],
 					"monthDays": [
 						15,

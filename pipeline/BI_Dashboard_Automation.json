@@ -1,5 +1,5 @@
 {
-	"name": "runSQL",
+	"name": "BI_Dashboard_Automation",
 	"properties": {
 		"activities": [
 			{
@@ -79,6 +79,8 @@
 			{
 				"name": "ForEach_core",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
@@ -104,6 +106,10 @@
 								"url": {
 									"value": "https://github.com/KV-APAC-DNA/@{pipeline().parameters.RepoName}/blob/@{pipeline().parameters.BranchName}/@{pipeline().parameters.core_folderName}/@{item()}?raw=true",
 									"type": "Expression"
+								},
+								"connectVia": {
+									"referenceName": "AutoResolveIntegrationRuntime",
+									"type": "IntegrationRuntimeReference"
 								}
 							}
 						},
@@ -150,7 +156,7 @@
 		"parameters": {
 			"load_folderName": {
 				"type": "string",
-				"defaultValue": "PROD_TABLE_SCRIPTS/load"
+				"defaultValue": "BI_Dashboard_Automation/load"
 			},
 			"RepoName": {
 				"type": "string",
@@ -161,7 +167,10 @@
 				"defaultValue": "DDL_DML_Scripts"
 			},
 			"load_fileNames": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					"Dashboard_Data_Refresh.sql"
+				]
 			},
 			"core_fileNames": {
 				"type": "array"

@@ -1,0 +1,44 @@
+{
+	"name": "BI_DASHBOARD_TABLE_REFRESH_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "BI_Dashboard_Automation",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"load_folderName": "BI_Dashboard_Automation/load",
+					"RepoName": "gitadfadbplt001",
+					"BranchName": "DDL_DML_Scripts",
+					"load_fileNames": [
+						"Dashboard_Data_Refresh.sql"
+					]
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Month",
+				"interval": 1,
+				"startTime": "2024-10-28T09:36:00",
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						6
+					],
+					"monthDays": [
+						15,
+						1
+					]
+				}
+			}
+		}
+	}
+}

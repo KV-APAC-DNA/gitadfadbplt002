@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_POP6_MASTER_TRASACTION_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

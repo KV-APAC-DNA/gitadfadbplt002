@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_HCP360_IN_Ventasys_Load_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

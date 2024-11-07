@@ -2,7 +2,7 @@
 	"name": "historical_ cd_scorecard_table",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_PH_MDS_POS_PERFECTSTORE_DMS_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

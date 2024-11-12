@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Event Trigger for  in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_vietnam_prod",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Event Trigger for ID 25,26 in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_malaysia_prod_targets_sellin",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

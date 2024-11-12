@@ -17,10 +17,21 @@
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Minute",
-				"interval": 30,
+				"frequency": "Day",
+				"interval": 1,
 				"startTime": "2024-07-24T16:53:00",
-				"timeZone": "Singapore Standard Time"
+				"timeZone": "Singapore Standard Time",
+				"schedule": {
+					"minutes": [
+						15
+					],
+					"hours": [
+						17,
+						19,
+						21,
+						23
+					]
+				}
 			}
 		}
 	}

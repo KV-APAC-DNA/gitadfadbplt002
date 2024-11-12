@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Event Trigger for xx in PROD_DNA_LOAD.meta_raw.s3_to_adl\nMFT - kdp_conapdna_malaysia_prod_b2bcommerce",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

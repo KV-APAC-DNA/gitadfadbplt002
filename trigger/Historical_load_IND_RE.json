@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Sync forward for India specific tables ",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

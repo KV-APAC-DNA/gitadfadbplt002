@@ -2,7 +2,7 @@
 	"name": "s3_to_adls_coupang_ppm_file _trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

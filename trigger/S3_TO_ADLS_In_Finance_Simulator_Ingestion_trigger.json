@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_In_Finance_Simulator_Ingestion_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

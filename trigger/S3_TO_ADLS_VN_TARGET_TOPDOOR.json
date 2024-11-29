@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_VN_TARGET_TOPDOOR",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

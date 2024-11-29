@@ -2,7 +2,7 @@
 	"name": "s3_to_adls_my_perfectstore",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

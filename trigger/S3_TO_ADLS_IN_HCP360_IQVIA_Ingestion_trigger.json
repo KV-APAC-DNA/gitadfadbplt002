@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_IN_HCP360_IQVIA_Ingestion_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

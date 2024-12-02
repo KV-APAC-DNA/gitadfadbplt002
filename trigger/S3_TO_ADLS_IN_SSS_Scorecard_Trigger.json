@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_IN_SSS_Scorecard_Trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

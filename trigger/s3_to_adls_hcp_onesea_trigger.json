@@ -2,7 +2,7 @@
 	"name": "s3_to_adls_hcp_onesea_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

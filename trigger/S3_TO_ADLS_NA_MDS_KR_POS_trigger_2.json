@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_NA_MDS_KR_POS_trigger_2",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

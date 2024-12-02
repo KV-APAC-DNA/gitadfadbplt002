@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_j_india_generic_source_excel_sdl_data_ingestion_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

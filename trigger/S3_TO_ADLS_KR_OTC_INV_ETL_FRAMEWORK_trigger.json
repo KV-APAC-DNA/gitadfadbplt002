@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_KR_OTC_INV_ETL_FRAMEWORK_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

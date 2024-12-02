@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_INDIA_KEY_ACCOUNT_OFFTAKE_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

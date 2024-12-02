@@ -2,7 +2,7 @@
 	"name": "HIstorical_Load_Comex",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {

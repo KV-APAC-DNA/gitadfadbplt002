@@ -2,7 +2,7 @@
 	"name": "S3_TO_ADLS_IN_MDS_REFRESH_PERFECT_STORE_TRANS_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
